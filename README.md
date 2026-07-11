@@ -7,7 +7,7 @@
 
 ## *💡 Project Idea*
 &nbsp;
-(To be defined — will be added after project scoping and stakeholder alignment.)
+The project idea is to create an internal BI portal for a fictional Chocolate production company called CocoaLand, this portal should serve C-level, and department managers. Part of what the portal contains is the 2025 Supply Chain Analytics report, which is our project.
 
 &nbsp;
 &nbsp;
