@@ -1,0 +1,113 @@
+table 'warehouse fact_RawMaterials_Inventory'
+	lineageTag: 1708eef0-1725-444b-b2ed-deb308711926
+
+	measure 'Procurement Waste %' = (SUM('warehouse fact_RawMaterials_Inventory'[Current Stock RM (Tons)])/SUM('warehouse fact_Products_Inventory'[Current Stock Prod (Tons)]))/1000
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: df5a933f-3a61-4c11-80e7-63921d4d6a3a
+
+	measure 'Inventory Turnover' =
+			
+			DIVIDE(
+			    'warehouse fact_Movements'[COGS USD],
+			    CALCULATE(AVERAGE('warehouse fact_RawMaterials_Inventory'[Inventory Value])
+			))/10
+		formatString: 0.00
+		lineageTag: cafd10ff-ea10-43c0-b880-da01c4e83082
+
+	measure 'Target Inventory Turnover' = 5.00
+		lineageTag: 045bc321-2ccb-45c7-a6a9-aec28fc50fc3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Material_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: a0ecbb84-d786-40d4-a318-0c7e5b4d6728
+		summarizeBy: none
+		sourceColumn: Material_Key
+
+		annotation SummarizationSetBy = User
+
+	column Warehouse_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8dd1a58f-b1ff-4021-b1d2-fbc0fcb8e36c
+		summarizeBy: none
+		sourceColumn: Warehouse_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Current_Stock_RM
+		dataType: int64
+		formatString: #,0
+		lineageTag: d2859eac-f12f-4d0e-a3bf-57238a83cbb8
+		summarizeBy: none
+		sourceColumn: Current_Stock_RM
+
+		annotation SummarizationSetBy = User
+
+	column Last_Updated_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4acfa302-7ff5-4059-875b-46af361a9095
+		summarizeBy: none
+		sourceColumn: Last_Updated_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column RM_Order_Level
+		dataType: int64
+		formatString: 0
+		lineageTag: 2470c207-cf61-4c8f-bd0e-0f8e71cc66d7
+		summarizeBy: none
+		sourceColumn: RM_Order_Level
+
+		annotation SummarizationSetBy = User
+
+	column Stock_Status
+		dataType: string
+		lineageTag: 4e83a80b-3740-44ec-b464-cc3d00a09d0f
+		summarizeBy: none
+		sourceColumn: Stock_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stock_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 0cb674c1-2c86-4406-bb7c-21f11ac13b9d
+		summarizeBy: none
+		sourceColumn: Stock_Key
+
+		annotation SummarizationSetBy = User
+
+	column 'Current Stock RM (Tons)' = 'warehouse fact_RawMaterials_Inventory'[Current_Stock_RM]/10000
+		dataType: int64
+		formatString: 0
+		lineageTag: bd8c8596-cc78-4044-9c51-4b344c478b39
+		summarizeBy: none
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Inventory Value' = ('warehouse fact_RawMaterials_Inventory'[Current_Stock_RM]*RELATED('warehouse dim_Raw_Materials'[Unit_Cost_USD]))/ 100
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 76a85b03-d1a3-45de-916b-49760887fd48
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	partition 'warehouse fact_RawMaterials_Inventory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-86K64M9\TEW_SQLEXPRESS", "CocoaLand_DB"),
+				    warehouse_fact_RawMaterials_Inventory = Source{[Schema="warehouse",Item="fact_RawMaterials_Inventory"]}[Data]
+				in
+				    warehouse_fact_RawMaterials_Inventory
+
+	annotation PBI_ResultType = Table
+

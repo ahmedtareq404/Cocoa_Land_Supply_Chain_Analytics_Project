@@ -1,0 +1,6 @@
+Warehouse_ID,Warehouse_Name,Country,Region,Capacity_(Metric Tons),Is_Active
+WH01,Cairo Distribution Hub,Egypt,Africa,5000,Yes
+WH02,Mumbai Storage Facility,India,Asia,8000,Yes
+WH03,Brussels Cold Storage,Belgium,Europe,6000,Yes
+WH04,New York Logistics Center,USA,North America,9000,Yes
+WH05,Singapore Regional Hub,Singapore,South Eastern Asia,7000,Yes

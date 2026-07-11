@@ -1,0 +1,25 @@
+table fn_diagramobjects
+	lineageTag: 0dc57bf8-b5a5-4533-9aeb-bc25d812129d
+
+	column fn_diagramobjects
+		dataType: double
+		lineageTag: 1aa076fb-89b7-43bb-aa53-3eb6b5c94b38
+		summarizeBy: sum
+		sourceColumn: fn_diagramobjects
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fn_diagramobjects = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-86K64M9\TEW_SQLEXPRESS", "CocoaLand_DB"),
+				    dbo_fn_diagramobjects = Source{[Schema="dbo",Item="fn_diagramobjects"]}[Data],
+				    #"Invoked Functiondbo_fn_diagramobjects1" = dbo_fn_diagramobjects()
+				in
+				    #"Invoked Functiondbo_fn_diagramobjects1"
+
+	annotation PBI_ResultType = Number
+

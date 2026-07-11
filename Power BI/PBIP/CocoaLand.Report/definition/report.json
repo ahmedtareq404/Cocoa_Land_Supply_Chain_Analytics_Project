@@ -1,0 +1,131 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY26SU02",
+      "reportVersionAtImport": {
+        "visual": "2.6.0",
+        "report": "3.1.0",
+        "page": "2.3.0"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "zebraBiCards2C860CFAA9944091B75F0DBD117F20FA",
+    "PBI_CV_7B952816_A48F_49B4_9E13_15E3BB2C0337",
+    "MapBySquillion",
+    "ZoomChartsDrillDownPieProC062D62DA5CE45ECB95B7B1D0E5DA558",
+    "AdvancedLinearGaugeDA0D695483C84EDAA6A55149E2DS37",
+    "ImageCarouselByMAQSoftware1448688110701",
+    "KPIVizA96234ADB8D143D1837FEC426BB34781",
+    "payPalKPIDonutChart55A431AB15A540ED924ACD72ED8D259F",
+    "PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1",
+    "heatmapF244EA9EE1F34E828A80CF19B41976F8",
+    "iconpack",
+    "StreamGraph1446659696222",
+    "rotatingTile1859AB39DB23400988ADF752BCB9C967",
+    "adaptiveCards1267F9A0298D434386A9E71CED194547",
+    "circleCard68ECC0CB90BE47B3962072B48765978B",
+    "codexKpiSparklineCard97601004C2B941D98D2D5B75A19ADB9D",
+    "codexCallbackCardF6E5D4C3B2A19087C6D5E4F3A2B1C0D9",
+    "codexKpiCardA9B8C7D6E5F4A3B2C1D0E9F8A7B6C5D4",
+    "politemailb8e3f237d2934ae2ac617d4524990658",
+    "simpleScorecardE4A86F3675B84D178C45F7E034E25D6A",
+    "histogrammeperso617D19C842BC4DB48BE9AA56788C1821",
+    "pbigenie_hbc_solution_001",
+    "InforiverCharts582F6C55AB6442EF8FA129089285CB47",
+    "PBI_CV_309E6B47_39A5_4681_808F_132AFB230860",
+    "ProgressKPI"
+  ],
+  "resourcePackages": [
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY26SU02",
+          "path": "BaseThemes/CY26SU02.json",
+          "type": "BaseTheme"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "CocoaLand_Dashboard436830642932046276.png",
+          "path": "CocoaLand_Dashboard436830642932046276.png",
+          "type": "Image"
+        },
+        {
+          "name": "CocoaLand_Dashboard440167609200963816.png",
+          "path": "CocoaLand_Dashboard440167609200963816.png",
+          "type": "Image"
+        },
+        {
+          "name": "CocoaLand_Dashboard441371341260801575.png",
+          "path": "CocoaLand_Dashboard441371341260801575.png",
+          "type": "Image"
+        },
+        {
+          "name": "CocoaLand_Dashboard45770726717577608.png",
+          "path": "CocoaLand_Dashboard45770726717577608.png",
+          "type": "Image"
+        },
+        {
+          "name": "CocoaLogo_for_web6525538899797475.png",
+          "path": "CocoaLogo_for_web6525538899797475.png",
+          "type": "Image"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "isPersistentUserStateDisabled": true,
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useDefaultAggregateDisplayName": true,
+    "customMemoryLimit": "1048576",
+    "customTimeoutLimit": "225"
+  },
+  "slowDataSourceSettings": {
+    "isCrossHighlightingDisabled": true,
+    "isSlicerSelectionsButtonEnabled": false,
+    "isFilterSelectionsButtonEnabled": false,
+    "isFieldWellButtonEnabled": false,
+    "isApplyAllButtonEnabled": false
+  }
+}

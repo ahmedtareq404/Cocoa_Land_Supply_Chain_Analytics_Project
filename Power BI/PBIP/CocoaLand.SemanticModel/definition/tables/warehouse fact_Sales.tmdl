@@ -1,0 +1,180 @@
+table 'warehouse fact_Sales'
+	lineageTag: 8fa7865e-d1ce-46df-9548-72e130b37a35
+
+	measure 'DIFOT %' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        DISTINCTCOUNT('warehouse fact_Sales'[Sales_Key]),
+			        'warehouse fact_Sales'[Fulfillment_Status] = "Delivered",
+			        'warehouse fact_Sales'[Fulfillment_Days] <= 21
+			    ),
+			    DISTINCTCOUNT('warehouse fact_Sales'[Sales_Key]),
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ed2af71d-4f65-46f1-b8d9-d91719224e99
+
+	measure 'Fill Rate %' = DIVIDE(CALCULATE(COUNT('warehouse fact_Sales'[Sales_Key]), 'warehouse fact_Sales'[Fulfillment_Status] IN {"Delivered", "Delivered with Delay"}), COUNT('warehouse fact_Sales'[Sales_Key]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d4210618-e726-4df3-8aba-af0cb73b8c34
+
+	measure 'Orders per Turn' = COUNT('warehouse fact_Sales'[Sales_Key])/'warehouse fact_RawMaterials_Inventory'[Inventory Turnover]
+		formatString: 0.00
+		lineageTag: ad12dc23-448c-4137-8ece-4d4ebfe26128
+
+	measure 'Avg Fulfillment Days' = CALCULATE(AVERAGE('warehouse fact_Sales'[Fulfillment_Days]) , 'warehouse fact_Sales'[Fulfillment_Status] IN {"Delivered", "Delivered with Delay"})
+		formatString: 0.00
+		lineageTag: 91745316-470c-4656-be9f-a5d079af5620
+
+	measure 'Customers by Cancelled' = CALCULATE(DISTINCTCOUNT('warehouse fact_Sales'[Customer_Key]), 'warehouse fact_Sales'[Fulfillment_Status] = "Cancelled")
+		formatString: 0
+		lineageTag: c4d8fdbd-c930-477d-815c-379219fe221c
+
+	measure 'Customers by Delivered with Delay' = CALCULATE(DISTINCTCOUNT('warehouse fact_Sales'[Customer_Key]), 'warehouse fact_Sales'[Fulfillment_Status] = "Delivered with Delay")
+		formatString: 0
+		lineageTag: 20547670-f963-4f06-b094-12dc855c3399
+
+	column Sales_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ebbcca3-e7e5-4ac6-affc-4e9564adea91
+		summarizeBy: none
+		sourceColumn: Sales_Key
+
+		annotation SummarizationSetBy = User
+
+	column Sales_Order_ID
+		dataType: string
+		lineageTag: 4de30e6f-e275-4ba5-ad29-ef8f00d48ad2
+		summarizeBy: none
+		sourceColumn: Sales_Order_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Shipment_ID
+		dataType: string
+		lineageTag: 420f15b4-1ee2-4be5-b479-186f1a2a04a5
+		summarizeBy: none
+		sourceColumn: Shipment_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: fdf0de90-0693-48c2-8d31-0d2d09f61e71
+		summarizeBy: none
+		sourceColumn: Product_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Customer_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: f4fb196e-e065-4a24-9ce4-6a04c6c29bcc
+		summarizeBy: none
+		sourceColumn: Customer_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 72ba871f-93f6-45d6-a48b-0a52a3cc5b44
+		summarizeBy: none
+		sourceColumn: Warehouse_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order_Date_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 61c00774-f867-4f50-b7d1-9822c712e269
+		summarizeBy: none
+		sourceColumn: Order_Date_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status_Date_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: d1cecdb4-7b4c-40bf-a104-aab420700830
+		summarizeBy: none
+		sourceColumn: Status_Date_Key
+
+		annotation SummarizationSetBy = User
+
+	column Order_Qty
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cc2a84a-8e55-495b-8119-1d95bd9ec84d
+		summarizeBy: none
+		sourceColumn: Order_Qty
+
+		annotation SummarizationSetBy = User
+
+	column Unit_Price_USD
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 14b51e19-dfb5-4bd5-82b6-afd2e9265f31
+		summarizeBy: none
+		sourceColumn: Unit_Price_USD
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Total_Value_USD
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 7f4479bc-d8a3-45a6-a223-c746e5800e3a
+		summarizeBy: none
+		sourceColumn: Total_Value_USD
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Fulfillment_Status
+		dataType: string
+		lineageTag: 43485cbc-a2da-434c-b961-73e4450a17ba
+		summarizeBy: none
+		sourceColumn: Fulfillment_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fulfillment_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: 584a6177-e6f5-49a0-8634-a325b9237c2a
+		summarizeBy: none
+		sourceColumn: Fulfillment_Days
+
+		annotation SummarizationSetBy = User
+
+	column 'Qty of Goods Sold (Tons)' =
+			VAR TotalWeight_g =
+			    'warehouse fact_Sales'[Order_Qty] *
+			    RELATED('warehouse dim_Products'[Weight_g])
+			
+			RETURN
+			    DIVIDE(TotalWeight_g, 1000000)
+		lineageTag: 0e45f84a-9532-4555-a5a1-0cc25d17935e
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'warehouse fact_Sales' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-86K64M9\TEW_SQLEXPRESS", "CocoaLand_DB"),
+				    warehouse_fact_Sales = Source{[Schema="warehouse",Item="fact_Sales"]}[Data]
+				in
+				    warehouse_fact_Sales
+
+	annotation PBI_ResultType = Table
+

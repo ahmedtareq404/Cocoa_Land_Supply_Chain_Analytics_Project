@@ -1,0 +1,102 @@
+table 'warehouse dim_Warehouse_Master'
+	lineageTag: d5fd8ce9-7abe-4acd-909b-e70a274b5e11
+
+	measure 'Overall Current Stock (Tons)' =
+			
+			SUM('warehouse fact_Products_Inventory'[Current Stock Prod (Tons)]) + SUM('warehouse fact_RawMaterials_Inventory'[Current Stock RM (Tons)])
+		formatString: 0.00
+		lineageTag: 5ea29acb-5f3f-4b2a-b84a-f63bf6672a4d
+
+		extendedProperty MeasureTemplate =
+				{
+				  "version": 0,
+				  "daxTemplateName": "MathematicalAddition"
+				}
+
+		changedProperty = FormatString
+
+	measure 'Total Warehouse Capacities' = SUM('warehouse dim_Warehouse_Master'[Capacity_MT])
+		formatString: 0
+		lineageTag: 43e087f5-9a07-42f6-a8e1-736097f56017
+
+	measure 'Capacity Utilisation %' = DIVIDE('warehouse dim_Warehouse_Master'[Overall Current Stock (Tons)], 'warehouse dim_Warehouse_Master'[Total Warehouse Capacities])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8e1aa860-02fb-4b34-89f4-9e9fdac14deb
+
+	measure 'Target Capacity Utilisation %' = 0.80
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: fa336d7b-298c-44fc-8d92-40cf95cae4bd
+
+	column Warehouse_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 33da4afb-ae75-4578-a784-5e722603e535
+		summarizeBy: none
+		sourceColumn: Warehouse_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse_ID
+		dataType: string
+		lineageTag: 2aba07e9-62b5-4753-a9c6-b3b47dfa9401
+		summarizeBy: none
+		sourceColumn: Warehouse_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse_Name
+		dataType: string
+		lineageTag: c3ef5925-ffab-4a6a-a211-27e58dcdbb77
+		summarizeBy: none
+		sourceColumn: Warehouse_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 1cd22ad1-6395-4bf1-bccf-f48139c2776d
+		dataCategory: Place
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 5a7ecb53-b38b-4810-a3ea-044821309be8
+		dataCategory: Place
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column Capacity_MT
+		dataType: int64
+		formatString: 0
+		lineageTag: aec0440f-02d8-465a-9035-a8f823b82d4a
+		summarizeBy: none
+		sourceColumn: Capacity_MT
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = User
+
+	column Is_Active
+		dataType: string
+		lineageTag: 69cd4010-4fe8-458b-b7f3-21c9eebaf742
+		summarizeBy: none
+		sourceColumn: Is_Active
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse dim_Warehouse_Master' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-86K64M9\TEW_SQLEXPRESS", "CocoaLand_DB"),
+				    warehouse_dim_Warehouse_Master = Source{[Schema="warehouse",Item="dim_Warehouse_Master"]}[Data]
+				in
+				    warehouse_dim_Warehouse_Master
+
+	annotation PBI_ResultType = Table
+

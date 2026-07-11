@@ -1,0 +1,66 @@
+table 'warehouse dim_Raw_Materials'
+	lineageTag: 1b5a189f-b816-442b-8f0e-095497e7782e
+
+	column Material_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 514dd461-a889-438f-9ae7-0c8e4415883a
+		summarizeBy: none
+		sourceColumn: Material_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material_ID
+		dataType: string
+		lineageTag: aeddff64-8ee7-4115-8399-37ffa4ca021d
+		summarizeBy: none
+		sourceColumn: Material_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material_Name
+		dataType: string
+		lineageTag: aa0c605a-09a8-47a8-a214-da9a58222b12
+		summarizeBy: none
+		sourceColumn: Material_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: f45707d8-3677-487b-a108-6c0e728e82fd
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Unit_Cost_USD
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: d2eb5140-ebbe-4702-a7d4-a3f04dd394c1
+		summarizeBy: none
+		sourceColumn: Unit_Cost_USD
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Unit_of_Measure
+		dataType: string
+		lineageTag: 32efaa90-f4d9-440b-918f-80d41409c19b
+		summarizeBy: none
+		sourceColumn: Unit_of_Measure
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse dim_Raw_Materials' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-86K64M9\TEW_SQLEXPRESS", "CocoaLand_DB"),
+				    warehouse_dim_Raw_Materials = Source{[Schema="warehouse",Item="dim_Raw_Materials"]}[Data]
+				in
+				    warehouse_dim_Raw_Materials
+
+	annotation PBI_ResultType = Table
+

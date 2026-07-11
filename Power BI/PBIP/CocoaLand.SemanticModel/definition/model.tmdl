@@ -1,0 +1,33 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["warehouse dim_Customers","warehouse dim_Date","warehouse dim_Products","warehouse dim_Raw_Materials","warehouse dim_Suppliers","warehouse dim_Warehouse_Master","warehouse fact_Movements","warehouse fact_Products_Inventory","warehouse fact_Purchase","warehouse fact_RawMaterials_Inventory","warehouse fact_Sales","fn_diagramobjects"]
+
+annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode"]
+
+ref table 'warehouse dim_Customers'
+ref table 'warehouse dim_Date'
+ref table DateTableTemplate_b2db68d8-06ea-4799-b3a3-102c8c2e6c6c
+ref table LocalDateTable_aae4aec9-9562-4c55-8773-bd561ee0f044
+ref table 'warehouse dim_Products'
+ref table 'warehouse dim_Raw_Materials'
+ref table 'warehouse dim_Suppliers'
+ref table 'warehouse dim_Warehouse_Master'
+ref table 'warehouse fact_Movements'
+ref table 'warehouse fact_Products_Inventory'
+ref table 'warehouse fact_Purchase'
+ref table 'warehouse fact_RawMaterials_Inventory'
+ref table 'warehouse fact_Sales'
+ref table fn_diagramobjects
+ref table LocalDateTable_a21a78a9-027f-454d-a23e-d853137cd332
+ref table LocalDateTable_bb1d53c5-a229-4e1e-aa0f-f865ce01fd78
+
+ref cultureInfo en-US
+

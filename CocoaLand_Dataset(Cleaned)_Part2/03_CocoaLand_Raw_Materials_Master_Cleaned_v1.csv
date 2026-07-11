@@ -1,0 +1,101 @@
+Material_ID,Material_Name,Category,Unit_Cost(USD),Unit_of_Measure
+RM001,Whole Milk Powder,Dairy,24.27,Kg
+RM002,Foil Wrap,Packaging,13.28344828,Kg
+RM003,Cocoa Beans,Cocoa,22.48,Kg
+RM004,Skim Milk Powder,Dairy,18.45,Kg
+RM005,Cream Powder,DaIry,16.09,Kg
+RM006,Cardboard Box,Packaging,13.28344828,Kg
+RM007,Cocoa Butter,Cocoa,14.33625,Kg
+RM008,Cocoa Powder,Cocoa,14.33625,Kg
+RM009,Butter Oil,Dairy,15.08,Litre
+RM010,Cane Sugar,Sweeteners,13.56461538,Kg
+RM011,Lactose,Dairy,16.09,Kg
+RM012,Whole Milk Powder,Dairy,16.09,Kg
+RM013,Skim Milk Powder,Dairy,24.69,Kg
+RM014,Cream Powder,Dairy,16.09,Kg
+RM015,Plastic Tray,Packaging,20.57,Kg
+RM016,Cocoa Liquor,Cocoa,18.07,Litre
+RM017,Shrink Film,Packaging,19.51,Kg
+RM018,Label Stock,Packaging,23.23,Kg
+RM019,Foil Wrap,Packaging,13.28344828,Kg
+RM020,Butter Oil,Dairy,21.4,Litre
+RM021,Beet Sugar,Sweeteners,13.56461538,Kg
+RM022,Dark Cocoa Extract,Cocoa,14.33625,Litre
+RM023,Glucose Syrup,Sweeteners,18.51,Litre
+RM024,Cardboard Box,Packaging,22.29,Kg
+RM025,Plastic Tray,Packaging,13.28344828,Kg
+RM026,Honey Powder,Sweeteners,18.12,Kg
+RM027,Stevia Extract,Sweeteners,18.32,Kg
+RM028,Cane Sugar,Sweeteners,19.5,Kg
+RM029,Shrink Film,Packaging,13.28344828,Kg
+RM030,Label Stock,Packaging,13.28344828,Kg
+RM031,Cocoa Beans,Cocoa,14.33625,Kg
+RM032,Cocoa Butter,Cocoa,14.33625,Kg
+RM033,Foil Wrap,PackAging,12.41,Kg
+RM034,Beet Sugar,Sweeteners,13.21,Kg
+RM035,Glucose Syrup,Sweeteners,13.56461538,Litre
+RM036,Cocoa Powder,Cocoa,14.33625,Kg
+RM037,Cardboard Box,Packaging,13.28344828,Kg
+RM038,Cocoa Liquor,Cocoa,14.33625,Litre
+RM039,Dark Cocoa Extract,Cocoa,17.67,Litre
+RM040,Lactose,Dairy,15.98,Kg
+RM041,Whole Milk Powder,Dairy,16.2,Kg
+RM042,Skim Milk Powder,Dairy,16.09,Kg
+RM043,Honey Powder,Sweeteners,22.2,Kg
+RM044,Plastic Tray,Packaging,13.28344828,Kg
+RM045,Shrink Film,Packaging,13.28344828,Kg
+RM046,Label Stock,Packaging,13.28344828,Kg
+RM047,Foil Wrap,Packaging,13.28344828,Kg
+RM048,Cream Powder,Dairy,21.66,Kg
+RM049,Stevia Extract,Sweeteners,13.56461538,Kg
+RM050,Cane Sugar,Sweeteners,13.56461538,Kg
+RM051,Butter Oil,Dairy,17.62,Litre
+RM052,Beet Sugar,Sweeteners,13.56461538,Kg
+RM053,Lactose,Dairy,16.09,Kg
+RM054,Cardboard Box,Packaging,13.28344828,Kg
+RM055,Whole Milk Powder,Dairy,24.32,Kg
+RM056,Plastic Tray,Packaging,17.71,Kg
+RM057,Shrink Film,Packaging,13.28344828,Kg
+RM058,Cocoa Beans,Cocoa,24.95,Kg
+RM059,Skim Milk Powder,Dairy,15.63,Kg
+RM060,Cocoa Butter,Cocoa,14.33625,Kg
+RM061,Cream Powder,Dairy,16.09,Kg
+RM062,Butter Oil,Dairy,16.22,Litre
+RM063,Cocoa Powder,Cocoa,14.33625,Kg
+RM064,Cocoa Liquor,Cocoa,24.66,Litre
+RM065,Lactose,Dairy,17.13,Kg
+RM066,Glucose Syrup,Sweeteners,13.56461538,Litre
+RM067,Label Stock,Packaging,18.48,Kg
+RM068,Dark Cocoa Extract,Cocoa,16.18,Litre
+RM069,Foil Wrap,Packaging,13.28344828,Kg
+RM070,Honey Powder,Sweeteners,13.56461538,Kg
+RM071,Stevia Extract,Sweeteners,13.56461538,Kg
+RM072,Cane Sugar,Sweeteners,13.56461538,Kg
+RM073,Cocoa Beans,Cocoa,21.6,Kg
+RM074,Beet Sugar,Sweeteners,13.56461538,Kg
+RM075,Cocoa Butter,Cocoa,14.33625,Kg
+RM076,Glucose Syrup,Sweeteners,13.56461538,Litre
+RM077,Cardboard Box,Packaging,13.28344828,Kg
+RM078,Plastic Tray,Packaging,13.28344828,Kg
+RM079,Whole Milk Powder,DaIry,23.48,Kg
+RM080,Shrink Film,Packaging,17.22,Kg
+RM081,Skim Milk Powder,Dairy,16.09,Kg
+RM082,Label Stock,Packaging,13.99,Kg
+RM083,Cocoa Powder,Cocoa,14.33625,Kg
+RM084,Foil Wrap,Packaging,24.57,Kg
+RM085,Cream Powder,Dairy,16.09,Kg
+RM086,Butter Oil,Dairy,22.53,Litre
+RM087,Honey Powder,Sweeteners,22.18,Kg
+RM088,Cocoa Liquor,Cocoa,14.33625,Litre
+RM089,Cardboard Box,Packaging,17.81,Kg
+RM090,Stevia Extract,Sweeteners,21.55,Kg
+RM091,Plastic Tray,Packaging,19.72,Kg
+RM092,Shrink Film,Packaging,23.46,Kg
+RM093,Cane Sugar,Sweeteners,17.06,Kg
+RM094,Beet Sugar,Sweeteners,13.56461538,Kg
+RM095,Glucose Syrup,Sweeteners,23.56,Litre
+RM096,Honey Powder,Sweeteners,13.56461538,Kg
+RM097,Stevia Extract,Sweeteners,14.17,Kg
+RM098,Label Stock,Packaging,13.28344828,Kg
+RM099,Cane Sugar,Sweeteners,13.56461538,Kg
+RM100,Dark Cocoa Extract,Cocoa,14.33625,Litre

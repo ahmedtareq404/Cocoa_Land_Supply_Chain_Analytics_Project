@@ -1,0 +1,80 @@
+table 'warehouse fact_Products_Inventory'
+	lineageTag: 0a38c0b9-75f9-4bfa-8b4d-8a9ca8604587
+
+	column Product_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2dff4cdf-a638-49e3-b774-41194ca082f9
+		summarizeBy: none
+		sourceColumn: Product_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warehouse_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c9eb59c-8de1-4811-82df-f5cb30eec3e1
+		summarizeBy: none
+		sourceColumn: Warehouse_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Current_Stock_Prod
+		dataType: int64
+		formatString: #,0
+		lineageTag: 646d5f85-aaa9-4ae3-b334-6af3b9f9b99d
+		summarizeBy: none
+		sourceColumn: Current_Stock_Prod
+
+		annotation SummarizationSetBy = User
+
+	column Last_Updated_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 3d980e9c-1673-4337-a6cb-46a04560f389
+		summarizeBy: none
+		sourceColumn: Last_Updated_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stock_Status
+		dataType: string
+		lineageTag: 915155ae-ae23-427e-835d-54ed8bfb32fd
+		summarizeBy: none
+		sourceColumn: Stock_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stock_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a96553d-673e-4b3f-b1b6-2c2c7a3475af
+		summarizeBy: none
+		sourceColumn: Stock_Key
+
+		annotation SummarizationSetBy = User
+
+	column 'Current Stock Prod (Tons)' =
+			VAR TotalWeight_g =
+			    'warehouse fact_Products_Inventory'[Current_Stock_Prod] *
+			    RELATED('warehouse dim_Products'[Weight_g])
+			
+			RETURN
+			    DIVIDE(TotalWeight_g, 1000000)
+		formatString: 0.0000
+		lineageTag: 9efff689-064f-4f7d-b722-019b4096a581
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse fact_Products_Inventory' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-86K64M9\TEW_SQLEXPRESS", "CocoaLand_DB"),
+				    warehouse_fact_Products_Inventory = Source{[Schema="warehouse",Item="fact_Products_Inventory"]}[Data]
+				in
+				    warehouse_fact_Products_Inventory
+
+	annotation PBI_ResultType = Table
+

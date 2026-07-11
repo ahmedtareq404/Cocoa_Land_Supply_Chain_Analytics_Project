@@ -1,0 +1,93 @@
+table 'warehouse dim_Date'
+	lineageTag: 2be61f51-16a5-40a7-8582-cc7f6580bb4a
+
+	column Date_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c0a5b47-b9ad-41fc-b0fe-e95f24dcd725
+		summarizeBy: none
+		sourceColumn: Date_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Full_Date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 5405377b-48d1-4527-9836-e3f6d26b2d79
+		summarizeBy: none
+		sourceColumn: Full_Date
+
+		variation Variation
+			isDefault
+			relationship: 4732f4c9-9336-483c-9448-3de6affbb924
+			defaultHierarchy: LocalDateTable_aae4aec9-9562-4c55-8773-bd561ee0f044.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Day_Name
+		dataType: string
+		lineageTag: 91afce10-8279-457d-9037-25ec4f4f5e5f
+		summarizeBy: none
+		sourceColumn: Day_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month_Name
+		dataType: string
+		lineageTag: 04b8e431-b4ce-4eb5-9ab7-c89dbc3f5ba0
+		summarizeBy: none
+		sourceColumn: Month_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month_Number
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a573ec7-4624-47c8-b6de-60e98630b5d7
+		summarizeBy: sum
+		sourceColumn: Month_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: fff2d99b-5962-4185-aa79-758740030f15
+		summarizeBy: sum
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 25dc922c-4b52-4b74-9e20-df6011d82c54
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Week_Number
+		dataType: int64
+		formatString: 0
+		lineageTag: e0aaf6e8-16ea-4d1f-8901-0412fa0be26e
+		summarizeBy: sum
+		sourceColumn: Week_Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'warehouse dim_Date' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-86K64M9\TEW_SQLEXPRESS", "CocoaLand_DB"),
+				    warehouse_dim_Date = Source{[Schema="warehouse",Item="dim_Date"]}[Data]
+				in
+				    warehouse_dim_Date
+
+	annotation PBI_ResultType = Table
+

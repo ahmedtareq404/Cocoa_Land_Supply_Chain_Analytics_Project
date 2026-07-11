@@ -1,0 +1,6 @@
+Product_ID,Product_Name,Cocoa_Content_%,Unit_Price(USD),Weight(g),Primary_Materials,Launch_Date,Is_Active
+P01,Enchanted Milk Chocolate,35,4.5,100,"RM003, RM007, RM010, RM001, RM002",1/15/2020,Yes
+P02,Magical Dark Chocolate,72,5.2,100,"RM003, RM007, RM008, RM010, RM002",1/6/2019,Yes
+P03,Golden Cocoa Truffles,55,6.8,150,"RM003, RM007, RM010,   RM021, RM001, RM002",10/3/2021,Yes
+P04,Mystic White Chocolate,5,3.9,100,"RM003, RM010, RM001, RM004, RM002",11/20/2018,Yes
+P05,Hazelnut Milk Chocolate,30,5,120,"RM003, RM007, RM010, RM001, RM002",2/14/2022,Yes

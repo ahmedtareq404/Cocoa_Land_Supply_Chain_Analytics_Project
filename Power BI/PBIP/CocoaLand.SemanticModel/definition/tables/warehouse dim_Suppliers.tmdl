@@ -1,0 +1,155 @@
+table 'warehouse dim_Suppliers'
+	lineageTag: b3aa2932-d44f-4213-91be-d998bd58971b
+
+	measure 'Target On Time Rate' = 0.80
+		formatString: 0%;-0%;0%
+		lineageTag: 5c01549c-9d8e-4e95-aca0-4479dd140e1d
+
+	measure 'Target Avg Lead Time(Days)' = 30
+		formatString: 0
+		lineageTag: a8182be1-88ae-4a2a-8e14-0b4b314d48b8
+
+	measure 'Target Defect Rate' = 0.020
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d9dbcd32-4ea9-4161-80b4-f7a5c36eaa83
+
+	measure 'Target Quality Score' = 3.8
+		formatString: 0.00
+		lineageTag: 79b94648-d521-41bc-9781-78b9efd5c813
+
+	measure 'Target Avg Quality Score' = 3.80
+		formatString: 0.00
+		lineageTag: 7b8ecbc7-192e-44c3-a1e7-8a5dcbcd9cf9
+
+	measure 'Avg Defect Rate' = AVERAGE('warehouse dim_Suppliers'[Defect_Rate])/100
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a26b6586-712b-42fb-a2d9-1b5beada902f
+
+	measure 'First Pass Yield' = 1-(AVERAGE('warehouse dim_Suppliers'[Defect Rate %]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8c81466b-5913-49ec-8b67-493fe680746d
+
+	measure 'FPY Target' = 0.98
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: abdea5f6-2393-48e0-b339-d8cbb6c84dea
+
+	column Supplier_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 322c2696-f3eb-4c98-8571-e5d7ddb20a94
+		summarizeBy: none
+		sourceColumn: Supplier_Key
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Supplier_ID
+		dataType: string
+		lineageTag: f0f85a83-5611-4fe9-9ba2-90eda3cec704
+		summarizeBy: none
+		sourceColumn: Supplier_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: ae512493-205c-40ae-8725-40e95077d23b
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 30c47a86-8701-4fb0-adcb-3701e9150066
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column Avg_Lead_Time_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: b3d60ace-75f2-442c-a9c4-2b223b4dd6f9
+		summarizeBy: none
+		sourceColumn: Avg_Lead_Time_Days
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = User
+
+	column On_Time_Rate
+		dataType: double
+		formatString: 0%;-0%;0%
+		lineageTag: 0b2368b3-d736-4c60-9405-4eb88e21c78a
+		summarizeBy: none
+		sourceColumn: On_Time_Rate
+
+		annotation SummarizationSetBy = User
+
+	column Defect_Rate
+		dataType: double
+		formatString: 0.00
+		lineageTag: d6f9cffc-4a3c-4ae1-8174-ffa5493aa446
+		summarizeBy: none
+		sourceColumn: Defect_Rate
+
+		annotation SummarizationSetBy = User
+
+	column Quality_Score_Out_of_5
+		dataType: double
+		formatString: 0.00
+		lineageTag: ce16aed7-4f1f-40f7-bac2-3d39a86e6cdb
+		summarizeBy: none
+		sourceColumn: Quality_Score_Out_of_5
+
+		annotation SummarizationSetBy = User
+
+	column Last_Audit_Date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 46f14ea4-82cb-4a6a-9c6b-7c3cb388974f
+		summarizeBy: none
+		sourceColumn: Last_Audit_Date
+
+		variation Variation
+			isDefault
+			relationship: 1421d274-b13d-4163-82f2-a46a21d14c2a
+			defaultHierarchy: LocalDateTable_a21a78a9-027f-454d-a23e-d853137cd332.'Date Hierarchy'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Certification_Status
+		dataType: string
+		lineageTag: 7b19b043-064a-45f0-be0f-c30c2d30f728
+		summarizeBy: none
+		sourceColumn: Certification_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Defect Rate %' = 'warehouse dim_Suppliers'[Defect_Rate]/100
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0c9441a2-44ee-4f3f-9929-ad45b51ec0a1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	partition 'warehouse dim_Suppliers' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-86K64M9\TEW_SQLEXPRESS", "CocoaLand_DB"),
+				    warehouse_dim_Suppliers = Source{[Schema="warehouse",Item="dim_Suppliers"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(warehouse_dim_Suppliers,{{"Defect_Rate_pct", "Defect_Rate"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+

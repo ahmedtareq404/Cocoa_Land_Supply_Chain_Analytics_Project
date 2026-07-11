@@ -1,0 +1,173 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "31130797ec74c57f1d19",
+  "displayName": "Sales Orders",
+  "displayOption": "FitToPage",
+  "height": 768,
+  "width": 1366,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4f0193eafadf1f5a58b2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Customers"
+              }
+            },
+            "Property": "Customer_Key"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "538fe51c38ba2189c368",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Customers"
+              }
+            },
+            "Property": "Customer_ID"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "396a909a8c0d95880968",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Customers"
+              }
+            },
+            "Property": "Customer_Key"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "33287d9d35bd1d15a101",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Customers"
+              }
+            },
+            "Property": "Customer_ID"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "9fffe8bef8db83fdfcda",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "1e621b3192793164f9b7",
+        "boundFilter": "4f0193eafadf1f5a58b2",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Customers"
+              }
+            },
+            "Property": "Customer_Key"
+          }
+        }
+      },
+      {
+        "name": "d8e226a488b6ef55aa3d",
+        "boundFilter": "538fe51c38ba2189c368",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Customers"
+              }
+            },
+            "Property": "Customer_ID"
+          }
+        }
+      }
+    ],
+    "acceptsFilterContext": "None"
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FFF4BB'"
+                  }
+                }
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'CocoaLand_Dashboard4.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "CocoaLand_Dashboard45770726717577608.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

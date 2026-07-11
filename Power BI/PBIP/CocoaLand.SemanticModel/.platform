@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "CocoaLand"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "21364493-d7f5-4c08-a8aa-6c31f8687cf9"
+  }
+}

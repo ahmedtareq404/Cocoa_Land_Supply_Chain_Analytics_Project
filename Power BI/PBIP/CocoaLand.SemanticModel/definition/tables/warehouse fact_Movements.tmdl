@@ -1,0 +1,191 @@
+table 'warehouse fact_Movements'
+	lineageTag: 87b37265-f4be-4952-93ab-62a9d7da8e28
+
+	measure 'IN Movements' = CALCULATE(COUNT('warehouse fact_Movements'[Movement_Key]), 'warehouse fact_Movements'[Movement_Type] = "IN")
+		formatString: 0
+		lineageTag: 2f091e48-2971-4159-b909-d7f99af85985
+
+	measure 'OUT Movements' = CALCULATE(COUNT('warehouse fact_Movements'[Movement_Key]), 'warehouse fact_Movements'[Movement_Type] = "OUT")
+		formatString: 0
+		lineageTag: bd2b7d10-0bc5-4a45-a1c3-73e4421547b0
+
+	measure 'IN Prod Qty' = CALCULATE(SUM('warehouse fact_Movements'[Qty of Prod Moved (Tons)]), 'warehouse fact_Movements'[Movement_Type] = "IN")
+		formatString: 0
+		lineageTag: 8c0afef4-a0e6-4e03-9651-08ac59541dac
+
+	measure 'IN RM Qty' = CALCULATE(SUM('warehouse fact_Movements'[Qty of RM Moved (Tons) for Sales]), 'warehouse fact_Movements'[Movement_Type] = "IN")
+		formatString: 0
+		lineageTag: 0a9a186c-632a-474c-9345-9c60e10d60a1
+
+	measure 'OUT RM Qty' = CALCULATE(SUM('warehouse fact_Movements'[Qty of RM Moved (Tons) for Sales]), 'warehouse fact_Movements'[Movement_Type] = "OUT")
+		formatString: 0
+		lineageTag: 107731ae-0ee6-498d-90da-926126093a08
+
+	measure 'OUT Prod Qty' = CALCULATE(SUM('warehouse fact_Movements'[Qty of Prod Moved (Tons)]), 'warehouse fact_Movements'[Movement_Type] = "OUT")
+		formatString: 0
+		lineageTag: d95f4d06-06e2-4d50-bc7b-c0e6076bdbe2
+
+	measure 'Total IN Qty' = ('warehouse fact_Movements'[IN Prod Qty]) + ('warehouse fact_Movements'[IN RM Qty])
+		formatString: 0.00
+		lineageTag: 670f69a5-8e77-4edb-b83d-169c3e1a1dea
+
+	measure 'Total OUT Qty' = ('warehouse fact_Movements'[OUT Prod Qty]) + ('warehouse fact_Movements'[OUT RM Qty])
+		formatString: 0.00
+		lineageTag: 386b4495-cf0a-455b-b601-d051d78ec17c
+
+	measure Shrinkage% =
+			
+			ABS(DIVIDE(([Expected Overall Qty]-[Overall Current Stock (Tons)]), [Expected Overall Qty]))/10
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 66428ada-ee73-470f-b3e3-1fbbe2c4f805
+
+	measure 'Target Shrinkage%' = 0.10
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a5d6e14b-17f1-4ce9-8e4b-62d7b91466ca
+
+	measure Variance% = DIVIDE(([Overall Current Stock (Tons)]-[Expected Overall Qty]), [Expected Overall Qty])/10
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 550baa66-920d-4fe7-adbb-a7b7dd6c5ddc
+
+	measure 'COGS USD' = SUM('warehouse fact_Movements'[Moved RM Value USD])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: db896aad-4a89-45a1-9c9f-3dbce7368beb
+
+	measure 'Target Variance %' = 0.10
+		lineageTag: 1b3fceda-8330-49ec-82ed-560928340e08
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Expected Overall Qty' = [Total IN Qty]-[Total OUT Qty]
+		lineageTag: 818e13ab-6925-4cc5-bf7f-56d84791f6eb
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Movement_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: fe295f0f-dc95-4461-acc5-297264a7d734
+		summarizeBy: none
+		sourceColumn: Movement_Key
+
+		annotation SummarizationSetBy = User
+
+	column Movement_ID
+		dataType: string
+		lineageTag: 9b63841d-e998-4cc3-8a6f-cdbccef3f26c
+		summarizeBy: none
+		sourceColumn: Movement_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 0431380e-032b-4bd4-b8d1-4fa7abb6f26f
+		summarizeBy: none
+		sourceColumn: Material_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity_RM
+		dataType: int64
+		formatString: 0
+		lineageTag: bec1bb0f-3703-4e96-964d-989bdf8bb2f1
+		summarizeBy: none
+		sourceColumn: Quantity_RM
+
+		annotation SummarizationSetBy = User
+
+	column Product_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 90f3a635-cfde-490b-b1dc-c986df3433a4
+		summarizeBy: none
+		sourceColumn: Product_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity_Prod
+		dataType: int64
+		formatString: 0
+		lineageTag: 197d242a-a7f3-47d7-a601-a92108efa77b
+		summarizeBy: none
+		sourceColumn: Quantity_Prod
+
+		annotation SummarizationSetBy = User
+
+	column Warehouse_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c927a4e-0e09-4b27-bc54-283a5154f295
+		summarizeBy: none
+		sourceColumn: Warehouse_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Movement_Type
+		dataType: string
+		lineageTag: 4b8e66d0-9698-424f-9900-9240ea9be6d5
+		summarizeBy: none
+		sourceColumn: Movement_Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Movement_Date_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: a65f180f-9941-4ac1-8a10-ec5b3acdcf89
+		summarizeBy: none
+		sourceColumn: Movement_Date_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Reference
+		dataType: string
+		lineageTag: f2b1b9b0-f9cd-4560-8242-14743db2ea27
+		summarizeBy: none
+		sourceColumn: Reference
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Qty of RM Moved (Tons) for Sales' = IF('warehouse fact_Movements'[Reference]="Sales Fulfillment",('warehouse fact_Movements'[Quantity_RM])/10)
+		lineageTag: 56951f9a-72f2-4497-a72d-7f1a0342c5fd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Qty of Prod Moved (Tons)' =
+			VAR TotalWeight_g =
+			    'warehouse fact_Movements'[Quantity_Prod] *
+			    RELATED('warehouse dim_Products'[Weight_g])
+			
+			RETURN
+			    DIVIDE(TotalWeight_g, 1000000)
+		formatString: 0.000
+		lineageTag: cc067ddf-d7a9-4599-9762-3aff1791456f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	column 'Moved RM Value USD' = 'warehouse fact_Movements'[OUT RM Qty] * RELATED('warehouse dim_Raw_Materials'[Unit_Cost_USD])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: 7bbc3538-c060-45fa-b08f-3ca50da980a7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition 'warehouse fact_Movements' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-86K64M9\TEW_SQLEXPRESS", "CocoaLand_DB"),
+				    warehouse_fact_Movements = Source{[Schema="warehouse",Item="fact_Movements"]}[Data]
+				in
+				    warehouse_fact_Movements
+
+	annotation PBI_ResultType = Table
+

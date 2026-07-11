@@ -1,0 +1,188 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "68c2e44440737001e03a",
+  "displayName": "Procurement",
+  "displayOption": "FitToPage",
+  "height": 768,
+  "width": 1366,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d4cb5585d7b7abed7105",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Raw_Materials"
+              }
+            },
+            "Property": "Material_ID"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "ce74f4d0813851ec423c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Raw_Materials"
+              }
+            },
+            "Property": "Material_Key"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "b4abff1fdc7775f62518",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse fact_Purchase"
+              }
+            },
+            "Property": "Purchase_Orders_Key"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "8bf2b7d1ebfd35a660d7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Raw_Materials"
+              }
+            },
+            "Property": "Material_Key"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "e6b66dd63f13c4e29537",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Raw_Materials"
+              }
+            },
+            "Property": "Material_ID"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "ae7a7e68d7c5701e872c",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "42a2751365a16b0dc850",
+        "boundFilter": "d4cb5585d7b7abed7105",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Raw_Materials"
+              }
+            },
+            "Property": "Material_ID"
+          }
+        }
+      },
+      {
+        "name": "2aa47a9dc2da87443ff4",
+        "boundFilter": "ce74f4d0813851ec423c",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Raw_Materials"
+              }
+            },
+            "Property": "Material_Key"
+          }
+        }
+      }
+    ],
+    "acceptsFilterContext": "None"
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FFF4BB'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'CocoaLand_Dashboard4.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "CocoaLand_Dashboard440167609200963816.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

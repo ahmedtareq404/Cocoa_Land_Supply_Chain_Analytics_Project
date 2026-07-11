@@ -1,0 +1,201 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "15533f148d038ea785fd",
+  "displayName": "Warehouse & Inventory",
+  "displayOption": "FitToPage",
+  "height": 768,
+  "width": 1366,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d060b63df67efafc49c1",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Warehouse_Master"
+              }
+            },
+            "Property": "Warehouse_Key"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "889331895c714a4eaaa0",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Warehouse_Master"
+              }
+            },
+            "Property": "Warehouse_ID"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "f95a0306d7ba7e66300e",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse fact_Movements"
+              }
+            },
+            "Property": "Movement_Key"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "9ea4b32e478cd2539e46",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Warehouse_Master"
+              }
+            },
+            "Property": "Warehouse_ID"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "92c9b73dd72567d8abed",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse fact_Movements"
+              }
+            },
+            "Property": "Warehouse_Key"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  },
+  "pageBinding": {
+    "name": "6d7f8df5b7ba5b61670b",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "a0bce5c30e9d05af31ef",
+        "boundFilter": "92c9b73dd72567d8abed",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse fact_Movements"
+              }
+            },
+            "Property": "Warehouse_Key"
+          }
+        }
+      },
+      {
+        "name": "5466f033a48a4ec268fe",
+        "boundFilter": "9ea4b32e478cd2539e46",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "warehouse dim_Warehouse_Master"
+              }
+            },
+            "Property": "Warehouse_ID"
+          }
+        }
+      }
+    ],
+    "acceptsFilterContext": "None"
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "image": {
+            "image": {
+              "name": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'CocoaLand_Dashboard4.png'"
+                  }
+                }
+              },
+              "url": {
+                "expr": {
+                  "ResourcePackageItem": {
+                    "PackageName": "RegisteredResources",
+                    "PackageType": 1,
+                    "ItemName": "CocoaLand_Dashboard441371341260801575.png"
+                  }
+                }
+              },
+              "scaling": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Fit'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FFF4BB'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "displayArea": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Middle'"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "d3d36c9fe54cf49fed11",
+      "target": "4fc9fe27f151d0f34bd8",
+      "type": "HighlightFilter"
+    }
+  ]
+}

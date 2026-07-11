@@ -1,0 +1,17 @@
+CREATE DATABASE CocoaLand_DB;
+GO
+ALTER LOGIN Ahmed404
+WITH DEFAULT_DATABASE = CocoaLand_DB;
+GO
+USE CocoaLand_DB;
+GO
+
+CREATE USER Ahmed404 FOR LOGIN Ahmed404;
+GO
+
+ALTER ROLE db_owner ADD MEMBER Ahmed404;
+GO
+USE CocoaLand_DB;
+GO
+
+SELECT name FROM sys.tables;

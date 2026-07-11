@@ -1,0 +1,127 @@
+relationship 4732f4c9-9336-483c-9448-3de6affbb924
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'warehouse dim_Date'.Full_Date
+	toColumn: LocalDateTable_aae4aec9-9562-4c55-8773-bd561ee0f044.Date
+
+relationship 34cb3eed-d875-456a-9fb1-e42536cc1bfd
+	fromColumn: 'warehouse fact_Movements'.Movement_Date_Key
+	toColumn: 'warehouse dim_Date'.Date_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 37cabadc-0c3c-422b-8ddc-287f5de79aee
+	fromColumn: 'warehouse fact_Movements'.Product_Key
+	toColumn: 'warehouse dim_Products'.Product_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship d898160a-ae1e-45d5-a31c-787e7157acf6
+	fromColumn: 'warehouse fact_Movements'.Material_Key
+	toColumn: 'warehouse dim_Raw_Materials'.Material_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 443992b4-be42-4a77-b168-1460d442a076
+	fromColumn: 'warehouse fact_Movements'.Warehouse_Key
+	toColumn: 'warehouse dim_Warehouse_Master'.Warehouse_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship ac3dc1c8-6db7-4eb8-9361-7191885f3440
+	fromColumn: 'warehouse fact_Products_Inventory'.Last_Updated_Key
+	toColumn: 'warehouse dim_Date'.Date_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship cd0977f8-3132-462b-ba8c-3c59b03a22a4
+	fromColumn: 'warehouse fact_Products_Inventory'.Warehouse_Key
+	toColumn: 'warehouse dim_Warehouse_Master'.Warehouse_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 54c9bd32-8cec-4025-9c66-5296bd21e2b8
+	fromColumn: 'warehouse fact_Purchase'.Delivery_Date_Key
+	toColumn: 'warehouse dim_Date'.Date_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship a551d100-d438-4b4b-8e9a-2d0570c2871c
+	isActive: false
+	fromColumn: 'warehouse fact_Purchase'.Order_Date_Key
+	toColumn: 'warehouse dim_Date'.Date_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 8c72dc5a-8aae-4b46-8962-fef5b2398f07
+	fromColumn: 'warehouse fact_Purchase'.Material_Key
+	toColumn: 'warehouse dim_Raw_Materials'.Material_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship e2142106-3a85-4d87-b73d-def41af76c31
+	fromColumn: 'warehouse fact_Purchase'.Supplier_Key
+	toColumn: 'warehouse dim_Suppliers'.Supplier_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship fa0e3590-0f3c-44ba-8734-8e1faaf3b9c1
+	fromColumn: 'warehouse fact_RawMaterials_Inventory'.Last_Updated_Key
+	toColumn: 'warehouse dim_Date'.Date_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 978fcce1-4968-4949-9254-08bba97fd175
+	fromColumn: 'warehouse fact_RawMaterials_Inventory'.Warehouse_Key
+	toColumn: 'warehouse dim_Warehouse_Master'.Warehouse_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 28101ca2-289e-43c8-8269-1c960aa48b4b
+	fromColumn: 'warehouse fact_Sales'.Customer_Key
+	toColumn: 'warehouse dim_Customers'.Customer_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship c46d33c5-771d-4e31-b3fc-3626ce31114b
+	fromColumn: 'warehouse fact_Sales'.Order_Date_Key
+	toColumn: 'warehouse dim_Date'.Date_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 568b32f4-f907-4691-8a8b-b3fa961c947b
+	isActive: false
+	fromColumn: 'warehouse fact_Sales'.Status_Date_Key
+	toColumn: 'warehouse dim_Date'.Date_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship fb3d71f2-0c87-4249-9a1e-b6190193e7da
+	fromColumn: 'warehouse fact_Sales'.Product_Key
+	toColumn: 'warehouse dim_Products'.Product_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 954aafb6-421c-4f02-aabb-4f9b33c1901d
+	fromColumn: 'warehouse fact_Sales'.Warehouse_Key
+	toColumn: 'warehouse dim_Warehouse_Master'.Warehouse_Key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 1421d274-b13d-4163-82f2-a46a21d14c2a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'warehouse dim_Suppliers'.Last_Audit_Date
+	toColumn: LocalDateTable_a21a78a9-027f-454d-a23e-d853137cd332.Date
+
+relationship 3add6697-5119-0acd-2eee-bab7cfbab169
+	fromColumn: 'warehouse fact_Products_Inventory'.Product_Key
+	toColumn: 'warehouse dim_Products'.Product_Key
+
+relationship bdd8ea1f-6ea9-47ef-96b8-1bf7a8eaff74
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'warehouse dim_Products'.Launch_Date
+	toColumn: LocalDateTable_bb1d53c5-a229-4e1e-aa0f-f865ce01fd78.Date
+
+relationship 0066a72d-10fa-8532-58ff-ddad7684af21
+	fromColumn: 'warehouse fact_RawMaterials_Inventory'.Material_Key
+	toColumn: 'warehouse dim_Raw_Materials'.Material_Key
+

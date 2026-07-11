@@ -1,0 +1,256 @@
+table 'warehouse fact_Purchase'
+	lineageTag: 43e2d9bb-2d3f-49cb-a2eb-852fd3f39b93
+
+	measure 'Suppliers OTIF %' = DIVIDE(CALCULATE(COUNT('warehouse fact_Purchase'[Purchase_Orders_Key]), ('warehouse fact_Purchase'[PO_Status] = "Received")), CALCULATE(COUNT('warehouse fact_Purchase'[Purchase_Orders_Key])))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: bac88c18-30d5-4178-b4cd-6aed6f178138
+
+	measure 'Target OTIF %' = 0.85
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 84c9c3a4-18aa-426f-ab8d-e659699fc25b
+
+	measure 'Reorder Rate %' =
+			
+			DIVIDE(
+			    SUM('warehouse fact_Purchase'[Is_Repeated_PO]),
+			    CALCULATE(
+			        COUNTROWS('warehouse fact_Purchase'),
+			        'warehouse fact_Purchase'[PO_Status] <> "Cancelled"
+			    ),
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5d1984da-38e8-4878-9942-fb7841cfe7d4
+
+	measure 'Total PO Lines' =
+			
+			COUNT('warehouse fact_Purchase'[PO_Line_ID])
+		formatString: 0
+		lineageTag: 24417e8c-ad84-462f-8a45-e7795e80d9fa
+
+	measure 'Target Reorder Rate %' = 0.40
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 28b734ba-5489-4544-a374-34efe740fb56
+
+	measure 'Order Waste %' = DIVIDE(CALCULATE(COUNT('warehouse fact_Purchase'[Purchase_Orders_Key]), 'warehouse fact_Purchase'[PO_Status]="Cancelled"), COUNT('warehouse fact_Purchase'[Purchase_Orders_Key]), 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c8503a12-7a93-4461-b4e6-4803e9a3b070
+
+	measure 'Process Waste %' =
+			
+			(
+			    [Order Waste %] * 0.4
+			)
+			+
+			(
+			    [Procurement Waste %] * 0.6
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: cda4f94a-93ef-4060-9212-8af41b1d70d4
+
+	measure 'Target Process Waste %' = 0.080
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 42103353-7bf3-4456-80f5-97ad77fb9562
+
+	measure 'Delivered Orders' = CALCULATE(COUNT('warehouse fact_Purchase'[Purchase_Orders_Key]), 'warehouse fact_Purchase'[PO_Status] <> "Cancelled")
+		formatString: 0
+		lineageTag: b2b94aca-517b-48fa-a2aa-d7da37017d33
+
+	measure 'Successful Delivery Rate' = [Delivered Orders]/COUNT([Purchase_Orders_Key])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d9b4b66f-3ef5-459f-86ec-712599dadf85
+
+	column Purchase_Orders_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e383a90-6e8d-4ed2-8a44-e0b823e8095d
+		summarizeBy: none
+		sourceColumn: Purchase_Orders_Key
+
+		annotation SummarizationSetBy = User
+
+	column PO_ID
+		dataType: string
+		lineageTag: cb57f170-beb0-490d-9051-f8104a0352d2
+		summarizeBy: none
+		sourceColumn: PO_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PO_Line_ID
+		dataType: string
+		lineageTag: 37143706-a34d-4013-a3d7-ba4145b5badc
+		summarizeBy: none
+		sourceColumn: PO_Line_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Supplier_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 80113934-a077-4229-9837-abb2cefc8258
+		summarizeBy: none
+		sourceColumn: Supplier_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Order_Date_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 21b0bd10-f215-4cb7-af21-c216adc39f9a
+		summarizeBy: none
+		sourceColumn: Order_Date_Key
+
+		annotation SummarizationSetBy = User
+
+	column Delivery_Date_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: c560bda4-6751-4a09-8e9e-2a2078899421
+		summarizeBy: none
+		sourceColumn: Delivery_Date_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column PO_Status
+		dataType: string
+		lineageTag: 656a9306-0332-4de0-b57d-46da4b352b18
+		summarizeBy: none
+		sourceColumn: PO_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Material_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 9ade6f56-5c15-4a23-9e0e-0176c63fd9f4
+		summarizeBy: none
+		sourceColumn: Material_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: f45d42a4-53bc-43b0-b893-655e129198ec
+		summarizeBy: none
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = User
+
+	column Unit_Cost_USD
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 08e16bbc-18ea-47e8-aba5-cab98a63db1b
+		summarizeBy: none
+		sourceColumn: Unit_Cost_USD
+
+		annotation SummarizationSetBy = User
+
+	column Line_Total_USD
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 3d89b35d-68f5-4cc2-83a7-b067e8e9160f
+		summarizeBy: none
+		sourceColumn: Line_Total_USD
+
+		annotation SummarizationSetBy = User
+
+	column Total_PO_USD
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 757fd7f8-4618-429e-aefe-38110bef837f
+		summarizeBy: none
+		sourceColumn: Total_PO_USD
+
+		annotation SummarizationSetBy = User
+
+	column Delivery_Days =
+			
+			VAR OrderDate = LOOKUPVALUE('warehouse dim_Date'[Full_Date], 'warehouse dim_Date'[Date_Key], 'warehouse fact_Purchase'[Order_Date_Key])
+			
+			VAR DeliveryDate = LOOKUPVALUE('warehouse dim_Date'[Full_Date], 'warehouse dim_Date'[Date_Key], 'warehouse fact_Purchase'[Delivery_Date_Key])
+			
+			RETURN DATEDIFF(OrderDate, DeliveryDate, DAY)
+		formatString: 0
+		lineageTag: 4dc5367b-5948-4192-aaf5-2a6116dc2dca
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	column Is_Repeated_PO =
+			
+			VAR CurrentSupplier =
+			    'warehouse fact_Purchase'[Supplier_Key]
+			
+			VAR CurrentMaterial =
+			    'warehouse fact_Purchase'[Material_Key]
+			
+			VAR CurrentDate =
+			    'warehouse fact_Purchase'[Order_Date_key]
+			
+			VAR CurrentStatus =
+			    'warehouse fact_Purchase'[PO_Status]
+			
+			VAR FutureOrders =
+			    CALCULATE(
+			        COUNTROWS('warehouse fact_Purchase'),
+			
+			        FILTER(
+			            ALL('warehouse fact_Purchase'),
+			
+			            'warehouse fact_Purchase'[Supplier_Key] = CurrentSupplier
+			                &&
+			            'warehouse fact_Purchase'[Material_Key] = CurrentMaterial
+			                &&
+			            'warehouse fact_Purchase'[Order_Date_Key] > CurrentDate
+			                &&
+			            'warehouse fact_Purchase'[Order_Date_Key] <= CurrentDate + 30
+			                &&
+			            'warehouse fact_Purchase'[PO_Status] <> "Cancelled"
+			        )
+			    )
+			
+			RETURN
+			IF(
+			    CurrentStatus <> "Cancelled"
+			        &&
+			    FutureOrders > 0,
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 94816da2-35cb-4023-be6e-cf7c0d4ae49e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+	column 'RM Total Purchase Value' = 'warehouse fact_Purchase'[Line_Total_USD]/10
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ccc6b870-ea71-4976-97c0-7fd4891e702b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Qty of Defective RM (Tons)' = (IF('warehouse fact_Purchase'[PO_Status] <> "Cancelled", 'warehouse fact_Purchase'[Quantity] * RELATED('warehouse dim_Suppliers'[Defect Rate %]), BLANK()))/10000
+		lineageTag: b774067f-d974-4bb2-81fa-2662f8914629
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'warehouse fact_Purchase' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("DESKTOP-86K64M9\TEW_SQLEXPRESS", "CocoaLand_DB"),
+				    warehouse_fact_Purchase = Source{[Schema="warehouse",Item="fact_Purchase"]}[Data],
+				    #"Renamed Columns" = Table.RenameColumns(warehouse_fact_Purchase,{{"Purchase_Key", "Purchase_Orders_Key"}, {"Expected_Delivery_Date_Key", "Delivery_Date_Key"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
