@@ -127,7 +127,8 @@ Abdelrahman Ashour
 You can find the full project files here:
 
 [Google Colab Python Notebooks](https://drive.google.com/drive/u/0/folders/1FPydVPU300nOvElYILm1q2AcdxUlCyCQ)]
-&nbsp;[Web Portal](https://cocoa-land-bi-portal.vercel.app/)]
+&nbsp;
+[Web Portal](https://cocoa-land-bi-portal.vercel.app/)]
 
 &nbsp;
 &nbsp;
