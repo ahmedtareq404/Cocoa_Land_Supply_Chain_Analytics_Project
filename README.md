@@ -123,25 +123,7 @@ Abdelrahman Ashour
 
 You can find the full project files here:
 
-[Google Colab Python Notebooks]([https://drive.google.com/drive/folders/1v_kXkTEEXGfrRwR9tVCZCbIOX6fBkX-W?usp=drive_link](https://drive.google.com/open?id=18ky3XljAQz6fRvsxNVupQwy5Mb4GkvRg&usp=drive_copy
-https://drive.google.com/open?id=1Kme7dnaUZpuAy_bGwxA-FygpWIIZCay9&usp=drive_copy
-https://drive.google.com/open?id=1J59H_KcgiddumXUwCSClniUDCyzrqkRI&usp=drive_copy
-https://drive.google.com/open?id=1HO4yvxNvs-soIH8Yf-E7GRfEmC8KO3C4&usp=drive_copy
-https://drive.google.com/open?id=1-EY1et6mHqk1bKjHTwpwJqnjIB3l_SLd&usp=drive_copy
-https://drive.google.com/open?id=1sfM9At0V3DcMRpWKK1oGxNtd0fHdFgQc&usp=drive_copy
-https://drive.google.com/open?id=1qw-ZuUjH8gNDhHvWxBmXcfmcf_vx6qPW&usp=drive_copy
-https://drive.google.com/open?id=1-Wn1LDW9iEis1ft9Nsl7ZJfE-cQmZsZq&usp=drive_copy
-https://drive.google.com/open?id=1mkScFl5wNxgtoU-2GjfZHO5RWViJRHBV&usp=drive_copy
-https://drive.google.com/open?id=1jhtrIx4TClqU9CW2MvvQ0Ed3ikZHi9Ld&usp=drive_copy
-https://drive.google.com/open?id=1419PDT9BEsZljurl2hqGs_pejTdpzdWT&usp=drive_copy
-https://drive.google.com/open?id=1xRbnR_jrR8vdZIUY9zoCmMFysZDZPm9i&usp=drive_copy
-https://drive.google.com/open?id=1CiVwplmHUjJzgzjcCvDg8P6d1Y5-xR0x&usp=drive_copy
-https://drive.google.com/open?id=18r5xFAgyMkZZvjV-ksfzas1Ayc2kXQEB&usp=drive_copy
-https://drive.google.com/open?id=13dJbHt9ioMA3FnIa0PuJDaCtzvVSr8TB&usp=drive_copy
-https://drive.google.com/open?id=1hDc5Pi0IeqTuYRPrCUi2LER4HOxbvSVW&usp=drive_copy
-https://drive.google.com/open?id=1g0LRVSSe_hzgZLNhQHWT-2VsmYdwELDC&usp=drive_copy
-https://drive.google.com/open?id=1FgDN2QEzUWTy2xmktGi2FTmuRgcAUxrg&usp=drive_copy))
-
+[Google Colab Python Notebooks]([https://drive.google.com/drive/folders/1v_kXkTEEXGfrRwR9tVCZCbIOX6fBkX-W?usp=drive_link]
 
 &nbsp;
 &nbsp;
