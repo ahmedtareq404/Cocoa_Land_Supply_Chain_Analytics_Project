@@ -123,7 +123,7 @@ Abdelrahman Ashour
 
 You can find the full project files here:
 
-[Google Colab Python Notebooks]([https://drive.google.com/drive/folders/1v_kXkTEEXGfrRwR9tVCZCbIOX6fBkX-W?usp=drive_link]
+[Google Colab Python Notebooks](https://drive.google.com/drive/u/0/folders/1FPydVPU300nOvElYILm1q2AcdxUlCyCQ)]
 
 &nbsp;
 &nbsp;
