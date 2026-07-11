@@ -1,5 +1,6 @@
 ## **📦 Cocoa Land Supply Chain Analytics**
 
+<img width="1023" height="487" alt="CocoaLand - Company" src="https://github.com/user-attachments/assets/f068d8de-e764-4caf-b041-6572272a92ab" />
 
 &nbsp;
 &nbsp;
@@ -48,18 +49,14 @@
 - Trend analysis
 - Descriptive statistics
 - Pattern and anomaly detection
-- Root-cause insights
 
 **Phase 4 — Forecasting Analysis**
 
-- Demand / sales forecasting
-- Time series modeling
-- Scenario testing
-- Forecast validation
+- Time series (KPIs) forecasting
 
 **Phase 5 — Visualization Dashboard, Final Presentation & Technical Report**
 
-- Build dashboard (Power BI / Tableau)
+- Build dashboard (PowerBI)
 - KPI tracking visuals
 - Business insights summary
 - Final presentation slides
@@ -108,13 +105,17 @@ Abdelrahman Ashour
 
 ## *🔧 Tools & Technologies (Planned)*
 
-- SQL
-- Python (Pandas, NumPy, Scikit-learn)
-- Power BI 
-- Tableau
+- SQL Server
+- Python (Pandas, NumPy, FastAPI, Uvicorn, Pydantic)
+- PowerBI 
+- PowerPoint
 - Git & GitHub
-- Canva
-- MS Word
+- Ngrok
+- Google Antigravity
+- Vercel
+- Google Gemini
+- Claude Code
+- ChatGPT
  
 &nbsp;
 &nbsp;
