@@ -7,7 +7,7 @@
 
 ## *💡 Project Idea*
 &nbsp;
-The project idea is to create an internal BI portal for a fictional Chocolate production company called CocoaLand, this portal should serve C-level, and department managers. Part of what the portal contains is the 2025 Supply Chain Analytics report, which is our project.
+The project idea is to create an internal BI portal for a fictional Chocolate production company called CocoaLand. This portal should serve C-level, and department managers. Part of what the portal contains is the 2025 Supply Chain Analytics report, which is our project. This ensures that everything comes together in one place for ease of access, and each project contains its embedded report (Dashboards). Necessary tools come in a nice UI/UX, scoping users from almost basic web & computer navigation knowledge up to experts, delivering an outstanding and comfortable experience along with effective business problem solutions.
 
 &nbsp;
 &nbsp;
