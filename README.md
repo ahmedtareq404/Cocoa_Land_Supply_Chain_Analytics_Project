@@ -1,12 +1,15 @@
 ## **📦 Cocoa Land Supply Chain Analytics**
 
+<img width="1023" height="487" alt="CocoaLand - Company" src="https://github.com/user-attachments/assets/f068d8de-e764-4caf-b041-6572272a92ab" />
 
 &nbsp;
 &nbsp;
 
 ## *💡 Project Idea*
 &nbsp;
-(To be defined — will be added after project scoping and stakeholder alignment.)
+The project idea is to create an internal BI portal for a fictional Chocolate production company called CocoaLand. This portal should serve C-level, and department managers. Part of what the portal contains is the 2025 Supply Chain Analytics report, which is our project. This ensures that everything comes together in one place for ease of access, and each project contains its embedded report (Dashboards). Necessary tools come in a nice UI/UX, scoping users from almost basic web & computer navigation knowledge up to experts, delivering an outstanding and comfortable experience along with effective business problem solutions.
+
+https://cocoa-land-bi-portal.vercel.app/
 
 &nbsp;
 &nbsp;
@@ -48,18 +51,14 @@
 - Trend analysis
 - Descriptive statistics
 - Pattern and anomaly detection
-- Root-cause insights
 
 **Phase 4 — Forecasting Analysis**
 
-- Demand / sales forecasting
-- Time series modeling
-- Scenario testing
-- Forecast validation
+- Time series (KPIs) forecasting
 
 **Phase 5 — Visualization Dashboard, Final Presentation & Technical Report**
 
-- Build dashboard (Power BI / Tableau)
+- Build dashboard (PowerBI)
 - KPI tracking visuals
 - Business insights summary
 - Final presentation slides
@@ -108,13 +107,17 @@ Abdelrahman Ashour
 
 ## *🔧 Tools & Technologies (Planned)*
 
-- SQL
-- Python (Pandas, NumPy, Scikit-learn)
-- Power BI 
-- Tableau
+- SQL Server
+- Python (Pandas, NumPy, FastAPI, Uvicorn, Pydantic)
+- PowerBI 
+- PowerPoint
 - Git & GitHub
-- Canva
-- MS Word
+- Ngrok
+- Google Antigravity
+- Vercel
+- Google Gemini
+- Claude Code
+- ChatGPT
  
 &nbsp;
 &nbsp;
@@ -123,15 +126,9 @@ Abdelrahman Ashour
 
 You can find the full project files here:
 
-[Google Colab Python Notebooks](https://drive.google.com/drive/folders/1v_kXkTEEXGfrRwR9tVCZCbIOX6fBkX-W?usp=drive_link)
-
-[Project ERD](https://github.com/ahmedtareq404/Cocoa_Land_Supply_Chain_Analytics_Project/blob/main/CocoaLand_ERD1.pdf)
-
-[Cleaned Dataset](https://github.com/ahmedtareq404/Cocoa_Land_Supply_Chain_Analytics_Project/blob/main/CocoaLand_Dataset(Cleaned).rar)
-
-[SQL Files](https://github.com/ahmedtareq404/Cocoa_Land_Supply_Chain_Analytics_Project/tree/main/SQL)
-
-
+- [Google Colab Python Notebooks](https://drive.google.com/drive/u/0/folders/1FPydVPU300nOvElYILm1q2AcdxUlCyCQ)
+&nbsp;
+- [Web Portal](https://cocoa-land-bi-portal.vercel.app/)
 
 &nbsp;
 &nbsp;
