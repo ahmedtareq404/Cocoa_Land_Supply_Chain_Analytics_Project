@@ -118,6 +118,7 @@ Abdelrahman Ashour
 - Google Gemini
 - Claude Code
 - ChatGPT
+- Visual Studio
  
 &nbsp;
 &nbsp;
